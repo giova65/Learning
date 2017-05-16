@@ -1,6 +1,17 @@
+package speaker;
 
 public class Speaker {
 
+	private final String name;
+	private boolean alreadyTalked;
+	private boolean notAvailable;
+	
+	public Speaker(String name){
+		this.name = name;
+		this.alreadyTalked = false;
+		this.notAvailable = false;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -25,15 +36,25 @@ public class Speaker {
 			return false;
 		return true;
 	}
-
-	private final String name;
-	
-	public Speaker(String name){
-		this.name = name;
-	}
 	
 	public String getName(){
 		return this.name;	
+	}
+	
+	public void setAlreadyTalked(boolean alreadyTalked) {
+		this.alreadyTalked = alreadyTalked;
+	}
+	
+	public boolean getAlreadyTalked() {
+		return alreadyTalked;
+	}
+	
+	public void setNotAvailable(){
+		this.notAvailable = true;
+	}
+	
+	public boolean getNotAvailable(){
+		return this.notAvailable;
 	}
 	
 	

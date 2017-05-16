@@ -19,5 +19,5 @@ public class Selector {
 			Speaker speaker = presentation.getSpeaker();
 			System.out.println(speaker.getName());
 			
-	}
+		}
 }
