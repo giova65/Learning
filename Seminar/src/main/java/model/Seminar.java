@@ -35,7 +35,16 @@ public class Seminar {
 	
 	public void addCourse(Course course){
 		this.allCourses.put(course.getNumber(), course);
-		this.seatsLeft = this.seatsLeft - course.getStudentList().size();
+		decrementSeats(this.allCourses.get(course.getNumber()).getStudentList().size());
+		}
+	
+	public void addStudentToCourse(int courseID, Student student){
+		this.allCourses.get(courseID).addStudent(student);
+		decrementSeats(this.allCourses.get(courseID).getStudentList().size());
+	}
+	
+	public void decrementSeats(int amount){
+		this.seatsLeft = this.seatsLeft - amount;
 	}
 	
 	public HashMap<Integer, Course> getAllCourses(){
