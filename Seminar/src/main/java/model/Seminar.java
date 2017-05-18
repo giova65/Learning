@@ -1,6 +1,7 @@
 package model;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Seminar {
 	private final String location;
@@ -33,18 +34,27 @@ public class Seminar {
 		return this.seatsLeft;
 	}
 	
-	public void addCourse(Course course){
-		this.allCourses.put(course.getNumber(), course);
-		decrementSeats(this.allCourses.get(course.getNumber()).getStudentList().size());
+	public String getStudentsList(){
+		StringBuilder studentsList = new StringBuilder();
+		for (Entry<Integer, Course> entry : allCourses.entrySet()) {
+		    Course value = entry.getValue();
+		    studentsList.append(value.studentsListToString());
 		}
-	
-	public void addStudentToCourse(int courseID, Student student){
-		this.allCourses.get(courseID).addStudent(student);
-		decrementSeats(this.allCourses.get(courseID).getStudentList().size());
+		return studentsList.toString();
 	}
 	
-	public void decrementSeats(int amount){
-		this.seatsLeft = this.seatsLeft - amount;
+	public void addCourse(Course course){
+		this.allCourses.put(course.getNumber(), course);
+		if(course.getStudentList().size() > 0 && this.seatsLeft > 0){
+			this.seatsLeft = this.seatsLeft - (this.allCourses.get(course.getNumber()).getStudentList().size());
+		}
+	}
+	
+	public void addStudentToCourse(int courseID, Student student){
+		if(this.seatsLeft > 0){
+			this.allCourses.get(courseID).addStudent(student);
+			this.seatsLeft--;
+		}
 	}
 	
 	public HashMap<Integer, Course> getAllCourses(){

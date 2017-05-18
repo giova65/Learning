@@ -50,5 +50,13 @@ public class TestCourse {
 		assertThat(course.getStudentList().size(), is(0));
 	}
 	
+	@Test
+	public void testStudentsList(){
+		Course course = new Course("Cucina", 3, "Corso di cucina");
+		course.addStudent(new Student("Giovanni", "Mele"));
+		course.addStudent(new Student("Enrico", "Mangano"));
+		assertThat(course.studentsListToString(), is("Giovanni Mele\nEnrico Mangano\n"));
+	}
+	
 
 }

@@ -31,6 +31,15 @@ public class Course {
 	public ArrayList<Student> getStudentList(){
 		return this.studentList;
 	}
+	
+	public String studentsListToString(){
+		StringBuilder sb = new StringBuilder();
+		for(Student student: this.studentList){
+			sb.append(student.getFullName());
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
 
 	public void addStudent(Student student) {
 		if(student != null){
