@@ -37,4 +37,10 @@ public class Course {
 			this.studentList.add(student);
 		}
 	}
+
+	public void removeStudent(Student student) {
+		if(student != null){
+			this.studentList.remove(student);
+		}
+	}
 }
