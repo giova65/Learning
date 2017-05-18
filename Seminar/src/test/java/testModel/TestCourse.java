@@ -1,6 +1,6 @@
 package testModel;
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -53,10 +53,14 @@ public class TestCourse {
 	@Test
 	public void testStudentsList(){
 		Course course = new Course("Cucina", 3, "Corso di cucina");
-		course.addStudent(new Student("Giovanni", "Mele"));
-		course.addStudent(new Student("Enrico", "Mangano"));
-		assertThat(course.studentsListToString(), is("Giovanni Mele\nEnrico Mangano\n"));
-	}
-	
+		Student student1 = new Student("Giovanni", "Mele");
+		Student student2 = new Student("Enrico", "Mangano");
 
+		
+		course.addStudent(student1);
+		course.addStudent(student2);
+		
+		assertThat(course.studentsListToString(), is("Giovanni Mele\nEnrico Mangano\n"));
+		assertThat(course.getStudentList(), hasItems(student1, student2));
+	}
 }
