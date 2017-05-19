@@ -80,6 +80,8 @@ public class testSeminar {
 		seminar.addStudentToCourse(secondCourse.getNumber(), student2);
 		seminar.addStudentToCourse(secondCourse.getNumber(), student3);
 		assertThat(seminar.getSeatsLeft(), is(0));
+		//This is not good assertion due to use of the final representation, It's better verify the value into the data struct
+		//in this way the test verifies the data and not the final aspect (as String or HTML...) 
 		assertThat(seminar.getStudentsList(), is("Giovanni Mele\nEnrico Mangano\nManlio Modugno\n"));
 	}
 }

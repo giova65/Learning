@@ -8,7 +8,8 @@ public class Course {
 	private final String name;
 	private final int number;
 	private final String description;
-//	private final List<Student> studentList;
+//	Initially I've wrote ArrayList<Student>, Manlio hints to declare using Interface 
+//	so I can easily change the initialization from ArrayList to any kind of List implementations.
 	private final List<Student> studentList;
 	
 	public Course(String name, int number, String description){

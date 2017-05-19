@@ -1,6 +1,7 @@
 package model;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class Seminar {
@@ -8,7 +9,7 @@ public class Seminar {
 	private int seatsLeft;
 	private final String name;
 	private final String description;
-	private final HashMap<Integer, Course> allCourses;
+	private final Map<Integer, Course> allCourses;
 	
 	public Seminar(String name, String description, int seats, String location){
 		this.name = name;
@@ -57,7 +58,7 @@ public class Seminar {
 		}
 	}
 	
-	public HashMap<Integer, Course> getAllCourses(){
+	public Map<Integer, Course> getAllCourses(){
 		return this.allCourses;
 	}
 }
