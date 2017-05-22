@@ -9,19 +9,19 @@ import main.Movie;
 
 public class TestMovie {
 	
-	private Movie movie;
+	private Movie _movie;
 	@Before
 	public void init(){
-		this.movie = new Movie("Pulp fiction", Movie.REGULAR);
+		this._movie = new Movie("Pulp fiction", Movie.REGULAR);
 	}
 	@Test
 	public void testGetName(){
-		assertThat(movie.getTitle(), is("Pulp fiction"));
+		assertThat(_movie.getTitle(), is("Pulp fiction"));
 	}
 	
 	@Test
 	public void testSetGetPriceCode(){
-		this.movie.setPriceCode(Movie.CHILDRENS);
-		assertThat(this.movie.getPriceCode(), is(Movie.CHILDRENS));
+		this._movie.setPriceCode(Movie.CHILDRENS);
+		assertThat(this._movie.getPriceCode(), is(Movie.CHILDRENS));
 	}
 }

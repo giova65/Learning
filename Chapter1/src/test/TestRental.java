@@ -1,4 +1,5 @@
 package test;
+
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
@@ -10,22 +11,22 @@ import main.Rental;
 
 public class TestRental {
 
-	private Rental rental;
-	private Movie movie;
+	private Rental _rental;
+	private Movie _movie;
 	
 	@Before
 	public void init(){
-		this.movie = new Movie("Full metal jacket", Movie.REGULAR);
-		this.rental = new Rental(movie, 3);
+		_movie = new Movie("Full metal jacket", Movie.REGULAR);
+		_rental = new Rental(_movie, 3);
 	}
 	
 	@Test
 	public void testMovie(){
-		assertThat(this.rental.getMovie(), is(this.movie));
+		assertThat(_rental.getMovie(), is(_movie));
 	}
 	
 	@Test
 	public void testDaysRented(){
-		assertThat(this.rental.getDaysRented(), is(3));
+		assertThat(_rental.getDaysRented(), is(3));
 	}
 }
