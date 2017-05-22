@@ -3,7 +3,16 @@ package model;
 public class Student {
 	private final String name;
 	private final String surname; 
+
+	public Student(String name, String surname){
+		this.name = name;
+		this.surname = surname;
+	}
 	
+	public String getFullName(){
+		return this.name + " " + this.surname;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -33,14 +42,5 @@ public class Student {
 		} else if (!surname.equals(other.surname))
 			return false;
 		return true;
-	}
-
-	public Student(String name, String surname){
-		this.name = name;
-		this.surname = surname;
-	}
-	
-	public String getFullName(){
-		return this.name + " " + this.surname;
 	}
 }

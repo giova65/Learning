@@ -6,7 +6,6 @@ public class SeminarDetails {
 		
 		Seminar seminar = new Seminar("Seminario", "Primo Seminario", 4, "Mendrisio");
 		Course firstCourse = new Course("Inglese", 1, "Corso di inglese");
-		Course secondCourse = new Course("Matematica", 2, "Corso di matematica");
 		firstCourse.addStudent(new Student("Giovanni", "Mele"));
 		firstCourse.addStudent(new Student("Enrico", "Mangano"));
 		firstCourse.addStudent(new Student("Manlio", "Modugno"));
