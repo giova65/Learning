@@ -9,7 +9,7 @@ import model.Course;
 import model.Seminar;
 import model.Student;
 
-public class testSeminar {
+public class TestSeminar {
 	
 	@Test
 	public void testGetName(){
