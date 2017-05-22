@@ -37,8 +37,11 @@ public class TestCustomer {
 		_customer.addRental(_rental);
 		_customer.addRental(_rental);
 		
-		assertThat(_customer.statement(), is("Rental Record for Giovanni" + "\n" + 
-		"\t" + "Le iene" + "\t" + "6.0" + "\n" + "\t" + "Le iene" + "\t" + "6.0" + "\n" + "\t" + "Le iene" + "\t" + "6.0" + "\n" 
-		+ "Amount owned is 18.0" + "\n" + "You earned 6 frequent renter points" ));
+		assertThat(_customer.statement(), is("Rental Record for Giovanni\n"
+				+ "\tLe iene\t6.0\n"
+				+ "\tLe iene\t6.0\n"
+				+ "\tLe iene\t6.0\n" 
+				+ "Amount owned is 18.0" + "\n" +
+				"You earned 6 frequent renter points" ));
 	}
 }
