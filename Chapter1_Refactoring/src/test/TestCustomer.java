@@ -46,7 +46,7 @@ public class TestCustomer {
 	}
 	
 	@Test
-	public void testHtmlStatemet(){
+	public void testHtmlStatement(){
 		_customer.addRental(_rental);
 		_customer.addRental(_rental);
 		_customer.addRental(_rental);
