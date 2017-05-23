@@ -1,5 +1,7 @@
 package model;
 
+import util.Printer;
+
 public class SeminarDetails {
 
 	public static void main(String[] args) {
@@ -11,15 +13,20 @@ public class SeminarDetails {
 		firstCourse.addStudent(new Student("Manlio", "Modugno"));
 		seminar.addCourse(firstCourse);
 		System.out.println("******************************\n");
-		System.out.println("Seminario di " + seminar.getName() + " descrizione " + seminar.getDescription()+ "\n");
-		System.out.println("Il seminario si terrà presso " + seminar.getLocation() + " e al momento sono ci sono ancora " + seminar.getSeatsLeft() + " disponibili \n");
-		System.out.println("*****************************" + "\n\nGli studenti attualmente iscritti sono: \n");
-
-		if(seminar.getSeatsLeft() == 4){
-			System.out.println("AL MOMENTO NON SONO PRESENTI ISCRIZIONI");
-		}else {
-			System.out.println(seminar.getStudentsList());
-		}
+		
+//		System.out.println("Seminario di " + seminar.getName() + " descrizione " + seminar.getDescription()+ "\n");
+//		System.out.println("Il seminario si terrà presso " + seminar.getLocation() + " e al momento sono ci sono ancora " + seminar.getSeatsLeft() + " disponibili \n");
+//		System.out.println("*****************************" + "\n\nGli studenti attualmente iscritti sono: \n");
+//
+//		if(seminar.getSeatsLeft() == 4){
+//			System.out.println("AL MOMENTO NON SONO PRESENTI ISCRIZIONI");
+//		}else {
+//			System.out.println(seminar.getStudentsList());
+//		}
+		String csv = new Printer(seminar).printCSV();
+		String html = new Printer(seminar).printHtml();
+		System.out.println(csv);
+		System.out.println(html);
 	}
 
 }

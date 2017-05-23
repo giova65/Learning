@@ -1,5 +1,7 @@
 package util;
 
+import java.util.Map.Entry;
+
 import model.Course;
 import model.Seminar;
 import model.Student;
@@ -7,7 +9,13 @@ import model.Student;
 public class PrinterHTML implements SeminarPrinter{
 
 	public String print(Seminar seminar) {
-		return null;
+		String result = header(seminar);
+		for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
+			result += body(entry.getValue());
+		}
+		result += footer();
+
+		return result;
 	}
 
 	public String header(Seminar seminar) {
@@ -15,7 +23,8 @@ public class PrinterHTML implements SeminarPrinter{
 						+ "</title></head><body><div>"
 						+ seminar.getName() + ":</div><ul><li>"
 						+ seminar.getDescription() + "</li><li>"
-						+ seminar.getLocation() + "</li><li>" + seminar.getSeatsLeft()
+						+ seminar.getLocation() + "</li><li>" 
+						+ seminar.getSeatsLeft()
 						+ "</li></ul><div>partecipanti:</div><ul>";
 	}
 
