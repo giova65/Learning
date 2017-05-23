@@ -44,4 +44,18 @@ public class TestCustomer {
 				+ "Amount owned is 18.0" + "\n" +
 				"You earned 6 frequent renter points" ));
 	}
+	
+	@Test
+	public void testHtmlStatemet(){
+		_customer.addRental(_rental);
+		_customer.addRental(_rental);
+		_customer.addRental(_rental);
+		
+		assertThat(_customer.htmlStatement(), is("<H1>Rentals for <EM>Giovanni</EM></H1><P>\n"
+				+ "Le iene: 6.0<BR>\n"
+				+ "Le iene: 6.0<BR>\n"
+				+ "Le iene: 6.0<BR>\n"
+				+ "<P>You owe <EM>18.0</EM><P>\n"
+				+ "On this rental you earned <EM>6</EM> frequent renter points<P>"));
+	}
 }
