@@ -36,12 +36,11 @@ public class Seminar {
 	}
 	
 	public String getStudentsList(){
-		//StringBuilder seems to be better but is not real improvement
-		StringBuilder studentsList = new StringBuilder();
+		String result = "";
 		for (Entry<Integer, Course> entry : allCourses.entrySet()) {
-		    studentsList.append(entry.getValue().studentsListToString());
+			result += entry.getValue().studentsListToString();
 		}
-		return studentsList.toString();
+		return result;
 	}
 	
 	public void addCourse(Course course){

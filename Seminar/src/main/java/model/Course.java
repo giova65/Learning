@@ -36,12 +36,11 @@ public class Course {
 	}
 	
 	public String studentsListToString(){
-		StringBuilder sb = new StringBuilder();
+		String result = "";
 		for(Student student: this.studentList){
-			sb.append(student.getFullName());
-			sb.append("\n");
+			result += student.getFullName() + "\n";
 		}
-		return sb.toString();
+		return result;
 	}
 
 	public void addStudent(Student student) {
