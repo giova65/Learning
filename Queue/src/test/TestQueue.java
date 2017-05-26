@@ -41,4 +41,5 @@ public class TestQueue {
 	public void testIsEmpty() {
 		assertThat(queue._queue.size(), is(0));
 	}
+
 }

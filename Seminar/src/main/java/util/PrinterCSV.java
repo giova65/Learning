@@ -6,18 +6,20 @@ import model.Course;
 import model.Seminar;
 import model.Student;
 
-public class PrinterCSV implements SeminarPrinter{
+public class PrinterCSV extends SeminarPrinter{
 	
-	public String print(Seminar seminar) {
-		String result = header(seminar);
-		for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
-			result += body(entry.getValue());
-		}
-		result += footer();
+//	@Override
+//	public String print(Seminar seminar) {
+//		String result = header(seminar);
+//		for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
+//			result += body(entry.getValue());
+//		}
+//		result += footer();
+//
+//		return result;
+//	}
 
-		return result;
-	}
-
+	@Override
 	public String header(Seminar seminar) {
 		String header = "";
 		for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
@@ -29,6 +31,7 @@ public class PrinterCSV implements SeminarPrinter{
 		return header;
 	}
 	
+	@Override
 	public String body(Course course) {
 		String body = "";
 		for(Student student : course.getStudentList()){
@@ -37,6 +40,7 @@ public class PrinterCSV implements SeminarPrinter{
 		return body;
 	}
 	
+	@Override
 	public String footer() {
 		return "";
 	}

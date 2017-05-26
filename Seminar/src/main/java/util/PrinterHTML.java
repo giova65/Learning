@@ -1,23 +1,23 @@
 package util;
 
-import java.util.Map.Entry;
-
 import model.Course;
 import model.Seminar;
 import model.Student;
 
-public class PrinterHTML implements SeminarPrinter{
+public class PrinterHTML extends SeminarPrinter{
 
-	public String print(Seminar seminar) {
-		String result = header(seminar);
-		for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
-			result += body(entry.getValue());
-		}
-		result += footer();
+//	@Override
+//	public String print(Seminar seminar) {
+//		String result = header(seminar);
+//		for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
+//			result += body(entry.getValue());
+//		}
+//		result += footer();
+//
+//		return result;
+//	}
 
-		return result;
-	}
-
+	@Override
 	public String header(Seminar seminar) {
 		return "<html>" + "<head><title>" + seminar.getName()
 						+ "</title></head><body><div>"
@@ -28,6 +28,7 @@ public class PrinterHTML implements SeminarPrinter{
 						+ "</li></ul><div>partecipanti:</div><ul>";
 	}
 
+	@Override
 	public String body(Course course) {
 		String body = "";
 		for(Student student : course.getStudentList()){
@@ -36,6 +37,7 @@ public class PrinterHTML implements SeminarPrinter{
 		return body;
 	}
 
+	@Override
 	public String footer() {
 		return "</ul>" + "</body>" + "</html>";
 	}

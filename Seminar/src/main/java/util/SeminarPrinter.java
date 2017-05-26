@@ -1,16 +1,26 @@
 package util;
 
+import java.util.Map.Entry;
+
 import model.Course;
 import model.Seminar;
 
-public interface SeminarPrinter {
+public abstract class SeminarPrinter {
 
-	public String print(Seminar seminar);
+	public String print(Seminar seminar){
+			String result = header(seminar);
+			for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
+				result += body(entry.getValue());
+			}
+			result += footer();
 	
-	public String header(Seminar seminar);
+			return result;
+	};
 	
-	public String body(Course course);
+	public abstract String header(Seminar seminar);
 	
-	public String footer();
+	public abstract String body(Course course);
+	
+	public abstract String footer();
 	
 }

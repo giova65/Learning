@@ -33,5 +33,9 @@ public class MonitorableQueue implements QueueMethods {
 	public boolean isEmpty() {
 		return _queue.isEmpty();
 	}
+	
+	public int maxSize(){
+		return _maxSize;
+	}
 
 }
