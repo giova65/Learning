@@ -6,16 +6,7 @@ import model.Student;
 
 public class PrinterHTML extends SeminarPrinter{
 
-//	@Override
-//	public String print(Seminar seminar) {
-//		String result = header(seminar);
-//		for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
-//			result += body(entry.getValue());
-//		}
-//		result += footer();
-//
-//		return result;
-//	}
+
 
 	@Override
 	public String header(Seminar seminar) {
@@ -33,6 +24,7 @@ public class PrinterHTML extends SeminarPrinter{
 		String body = "";
 		for(Student student : course.getStudentList()){
 			body += "<li>" + student.getFullName()  + "</li>";
+			body += "<li>" + course.getDate()  + "</li>";
 		}
 		return body;
 	}

@@ -7,17 +7,7 @@ import model.Seminar;
 import model.Student;
 
 public class PrinterCSV extends SeminarPrinter{
-	
-//	@Override
-//	public String print(Seminar seminar) {
-//		String result = header(seminar);
-//		for (Entry<Integer, Course> entry : seminar.getAllCourses().entrySet()) {
-//			result += body(entry.getValue());
-//		}
-//		result += footer();
-//
-//		return result;
-//	}
+
 
 	@Override
 	public String header(Seminar seminar) {
@@ -35,7 +25,7 @@ public class PrinterCSV extends SeminarPrinter{
 	public String body(Course course) {
 		String body = "";
 		for(Student student : course.getStudentList()){
-			body += quote(student.getName()) + ";" + quote(student.getSurname()) + System.getProperty("line.separator");
+			body += quote(student.getName()) + ";" + quote(student.getSurname())+ ";" + quote(course.getDate()) + System.getProperty("line.separator");
 		}
 		return body;
 	}

@@ -1,43 +1,50 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Course {
 
-	private final String name;
-	private final int number;
-	private final String description;
+	private final String _name;
+	private final int _number;
+	private final String _description;
 //	Initially I've wrote ArrayList<Student>, Manlio hints to declare using Interface 
 //	so I can easily change the initialization from ArrayList to any kind of List implementations.
-	private final List<Student> studentList;
+	private final List<Student> _studentList;
+	private final Date _initDate;
 	
 	public Course(String name, int number, String description){
-		this.name = name;
-		this.number = number;
-		this.description = description;
-		this.studentList = new ArrayList<Student>();
+		this._name = name;
+		this._number = number;
+		this._description = description;
+		this._studentList = new ArrayList<Student>();
+		this._initDate = new Date();
 	}
 	
 	public String getName(){
-		return this.name;
+		return this._name;
 	}
 	
 	public int getNumber(){
-		return this.number;
+		return this._number;
 	}
 	
 	public String getDescription(){
-		return this.description;
+		return this._description;
 	}
 	
 	public List<Student> getStudentList(){
-		return this.studentList;
+		return this._studentList;
+	}
+	
+	public String getDate(){
+		return this._initDate.toString();
 	}
 	
 	public String studentsListToString(){
 		String result = "";
-		for(Student student: this.studentList){
+		for(Student student: this._studentList){
 			result += student.getFullName() + "\n";
 		}
 		return result;
@@ -45,13 +52,13 @@ public class Course {
 
 	public void addStudent(Student student) {
 		if(student != null){
-			this.studentList.add(student);
+			this._studentList.add(student);
 		}
 	}
 
 	public void removeStudent(Student student) {
 		if(student != null){
-			this.studentList.remove(student);
+			this._studentList.remove(student);
 		}
 	}
 	
@@ -59,10 +66,10 @@ public class Course {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + number;
-		result = prime * result + ((studentList == null) ? 0 : studentList.hashCode());
+		result = prime * result + ((_description == null) ? 0 : _description.hashCode());
+		result = prime * result + ((_name == null) ? 0 : _name.hashCode());
+		result = prime * result + _number;
+		result = prime * result + ((_studentList == null) ? 0 : _studentList.hashCode());
 		return result;
 	}
 
@@ -75,22 +82,22 @@ public class Course {
 		if (getClass() != obj.getClass())
 			return false;
 		Course other = (Course) obj;
-		if (description == null) {
-			if (other.description != null)
+		if (_description == null) {
+			if (other._description != null)
 				return false;
-		} else if (!description.equals(other.description))
+		} else if (!_description.equals(other._description))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (_name == null) {
+			if (other._name != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!_name.equals(other._name))
 			return false;
-		if (number != other.number)
+		if (_number != other._number)
 			return false;
-		if (studentList == null) {
-			if (other.studentList != null)
+		if (_studentList == null) {
+			if (other._studentList != null)
 				return false;
-		} else if (!studentList.equals(other.studentList))
+		} else if (!_studentList.equals(other._studentList))
 			return false;
 		return true;
 	}
