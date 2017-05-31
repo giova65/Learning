@@ -8,11 +8,11 @@ import java.util.List;
 
 public class Selector {
 	
-		private static final String SPEAKER_SET = "speakers.txt";
+		private static final String SPEAKER_SET = "../speakers.txt";
 
 		public void execute(String[] args) throws Exception {
 			
-			File file = new File(SPEAKER_SET);
+			File file = new File(SPEAKER_SET);	
 			List<String> speakers = readLines(file, "UTF-8");
 			List<String> notAvailable = asList(args);
 			Presentation presentation = new Presentation(speakers, notAvailable);
