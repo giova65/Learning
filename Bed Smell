@@ -1,0 +1,61 @@
+Prime osservazioni:
+
+    - Perche' creare una classe lineitemlist? Sembrerebbe una classe inutile tra lineItem e Order. 
+
+    - Perche' nomi minuscoli alle classi? => poco leggibile il tipo quando dichiaro una variabile (in maiuscolo) si fa confusione tra il nome del tipo e il nome della variabile.
+
+
+Classe lineItem:
+
+    - Uniteprice non e' inizializzato nel costruttore, voglio vedere se verra' usato e come
+
+    - Idem LineItems, ha getters e setters ma non e' nel costruttore.
+
+Per il momento noto getters e setters di tutti i field e mi chiedo se verranno utilizzati tutti.
+
+
+Classe lineitemList:
+
+    - Partiamo dal nome infelice che fa intendere sia un oggetto contenente una lista di lineItem e invece contiene solo un Vector LIList.
+
+    - setter che prende in argomento un Vector e il parametro formale lineItems va rinominato.
+
+Questa classe parrebbe totalmente inutile al momento.
+
+
+Classe Order:
+
+    - Questa classe ha un campo di tipo lineitemlist, un metodo apparentemente lungo quindi probabilmente va rivisto, 
+    un metodo getLineItemList privato e' usato? probabilmente no e va eliminato,
+
+    - Metodo Equals: 
+        aThat nel metodo equals, rispetta convenzioni il naming? Inoltre si crea confusione tra that e aThat.
+
+    - Metodo writeOrder:
+        l'esagerata quantita' di commenti fa confondere le righe di codice e quelle di commento.
+        Duplicazione di codice! dalla riga 27 alla riga 47 e' lo stesso codice che avevo gia' visto in getTotal. Si potrebbe innanzi tutto invocare il getTotal, ma considerando il getTotal una responsabilita' di lineItemList o lineItem (una delle due deve scomparire) si potrebbe ridurre il tutto ad un'invocazione di getTotal sul field lineItemList del parametro di tipo Order passato.
+
+        Nella seconda parte del metodo itera nuovamente per stampare i field di lineItem. L'iteratore iter lo reinizializza perche'?
+        Diverse variabili temp che si possono direttamente sostituire da invocazioni su item.   
+
+    - Metodo privato getLineItemList:
+        utilizzato solo in writeOrder(Order order, PrintWriter pw). getLineItemList() e' un getter di un campo privato di cui ho visibilita' gia' nella classe => inutile. 
+    
+    - Metodo getTotal:
+        la prima cosa che mi salta all'occhio e' che non deve essere responsabilita' della classe Order calcolare il totale di una lista ma della classe che modella l'oggetto con all'interno la lista.
+
+        un'altra cosa che si nota e' l'utilizzo ridondante di una temp (Vector lineItems) quando immaginandolo nella classe giusta avrei direttamente accesso al field e quindi potrei invocare inline i metodi sul field.
+
+    - Metodo saveOrder:
+        Riga di commento che spiega cosa fa il metodo, semplicemente si potrebbe rinominare saveOrderToDb.
+
+        variabili locali date e getStatement mai utilizzate
+
+        definizione della stringa sql a null, perche'?? la definisico e inizializzo direttamente sulla stessa riga.
+        Usa StringBuffer quando potrei direttamente concatenare.
+        Infine, potrei evitare tutto questo e creare direttamente lo statement nell'invocayione conn.prepareStatement("query")
+
+        invocazione di setConnection() solo per settare a null la connection => inLine
+
+
+
