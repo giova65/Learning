@@ -1,5 +1,5 @@
 
-public class InLine {
+public class InLineMethod {
 
 	private final int _numberOfLateDeliveries = 0;
 	
