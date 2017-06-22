@@ -11,6 +11,10 @@ public class HideDelegate {
 		public void setDepartement(Departement arg){
 			_departement = arg;
 		}
+		
+		public Person getManager(){
+			_departement.getManager();
+		}
 	}
 	
 	class Departement{
