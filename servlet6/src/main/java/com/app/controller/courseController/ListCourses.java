@@ -15,7 +15,7 @@ public class ListCourses implements Controller {
 	
 	private final List<Course> _courses;
 
-	public static final List<String> ROUTE = asList("/course/","/");
+	public static final List<String> ROUTE = asList("/course", "/course/", "/");
 
 	public ListCourses(List<Course> courses) {
 		_courses = courses;

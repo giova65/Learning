@@ -57,50 +57,6 @@ public class Servlet extends HttpServlet {
 		}
 	}
 	
-//	@Override
-//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		for(Controller c : new SeminarFactory().create()){
-//			if(c.handles(req.getRequestURI())){
-//				try {
-//					
-//					Connection connection = _ds.getConnection();
-//					connection.setAutoCommit(false);
-//					c.execute(new Context(req, resp, connection));
-//					connection.commit();
-//					connection.close();
-//					return;
-//				} catch (Exception e) {
-//					resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-//					throw new RuntimeException(e);
-//				}
-//			}
-//		}
-//		resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//		resp.getWriter().write("<h2>404</h2><p>Not found</p>");
-//	}
-//	
-//	@Override
-//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		for(Controller c : new SeminarFactory().create()){
-//			if(c.handles(req.getRequestURI())){
-//				try {
-//					
-//					Connection connection = _ds.getConnection();
-//					connection.setAutoCommit(false);
-//					c.execute(new Context(req, resp, connection));
-//					connection.commit();
-//					connection.close();
-//					return;
-//				} catch (Exception e) {
-//					resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-//					throw new RuntimeException(e);
-//				}
-//			}
-//		}
-//		resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//		resp.getWriter().write("<h2>404</h2><p>Not found</p>");	
-//	}
-	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		for(Controller c : new SeminarFactory().create()){
