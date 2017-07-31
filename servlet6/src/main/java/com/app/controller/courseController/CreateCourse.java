@@ -27,7 +27,8 @@ public class CreateCourse implements Controller {
 			context.response().getWriter().write(new MainLayout().render(new Form().render()));
 		}
 		if(context.isPost()){
-			Servlet._courses.add(new Course(Servlet._courses.size()+1, context.by("name"), new Time("25.06.2019"), context.by("location"), Integer.valueOf(context.by("totalseats")), context.by("description")));
+			Servlet._courses.add(new Course(Servlet._courses.size()+1, context.by("name"), new Time(context.by("start")), context.by("location"), Integer.valueOf(context.by("totalseats")), context.by("description")));
+			context.response().sendRedirect("/course/");
 		}
 	}
 	
