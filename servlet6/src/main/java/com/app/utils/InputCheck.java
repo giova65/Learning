@@ -1,31 +1,31 @@
 package com.app.utils;
 
+import static java.util.Arrays.*;
+
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Arrays.*;
-
 public class InputCheck {
 	
-	private List<CheckRule> _checkRules;
-	private List<Errors> _errors;
+	private List<CheckRule> _checkRuleList;
+	private Errors _errors;
 	private Map<String, CheckRule> _ruleSet;
 	
 	public InputCheck setCheck(CheckRule ... rule) {
-		_checkRules = asList(rule);
-		for(CheckRule rule : _checkRules){
-			_ruleSet.put(rule.getInputKey(), rule);
+		_checkRuleList = asList(rule);
+		for(CheckRule checkRule : _checkRuleList){
+			_ruleSet.put(checkRule.getInputKey(), checkRule);
 		}
 		return this;
 	}
 
 	public boolean isCorrect(){
-		
-		for (CheckRule check : _checkRules){
-			if(!check.check(_inputKey)){
-				_errors.add(new Error(check.getField(), check.getError());
+		for (CheckRule checkRule : _checkRuleList){
+			if(!checkRule.checkIsOk()){
+				_errors.addError(checkRule.getInputKey(), checkRule.getError());
 			}
 		}
+		return _errors.getSize() > 0;
 	}
 
 }
