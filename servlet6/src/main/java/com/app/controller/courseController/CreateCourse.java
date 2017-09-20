@@ -8,10 +8,8 @@ import com.Context;
 import com.Controller;
 import com.Servlet;
 import com.app.model.Course;
-import com.app.utils.DateFormatCheck;
 import com.app.utils.InputCheck;
 import com.app.utils.MandatoryFieldCheck;
-import com.app.utils.NumberCheck;
 import com.app.view.Form;
 import com.app.view.MainLayout;
 
@@ -32,11 +30,12 @@ public class CreateCourse implements Controller {
 			context.response().getWriter().write(new MainLayout().render(new Form().render()));
 		}
 		if(context.isPost()){
+			System.out.println(">>>>>>>>>" + context.request().getParameter("name"));
 			InputCheck _input = new InputCheck()
-					.setCheck(new MandatoryFieldCheck(Course.NAME, context.by(Course.NAME)))
-					.setCheck(new MandatoryFieldCheck(Course.START_DATE, context.by(Course.START_DATE)), new DateFormatCheck())
-					.setCheck(new MandatoryFieldCheck(Course.LOCATION, context.by(Course.LOCATION)))
-					.setCheck(new MandatoryFieldCheck(Course.TOTAL_SEATS, context.by(Course.TOTAL_SEATS)), new NumberCheck());
+					.setCheck(new MandatoryFieldCheck(Course.NAME.toLowerCase(), context.by(Course.NAME.toLowerCase())));
+//					.setCheck(new MandatoryFieldCheck(Course.START_DATE, context.by(Course.START_DATE)), new DateFormatCheck())
+//					.setCheck(new MandatoryFieldCheck(Course.LOCATION, context.by(Course.LOCATION)))
+//					.setCheck(new MandatoryFieldCheck(Course.TOTAL_SEATS, context.by(Course.TOTAL_SEATS)), new NumberCheck());
 			
 			if(_input.isCorrect()){
 				Servlet._courses.add(new Course(Servlet._courses.size()+1, context.by(Course.NAME), new Time(context.by(Course.START_DATE)), context.by(Course.LOCATION), Integer.valueOf(context.by(Course.TOTAL_SEATS)), context.by(Course.DESCRIPTION)));

@@ -38,6 +38,6 @@ public class Context {
 	}
 	
 	public String by(String name){
-		return _request.getParameter(name);
+		return _request.getParameter(name.toLowerCase());
 	}
 }

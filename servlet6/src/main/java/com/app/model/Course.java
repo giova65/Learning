@@ -12,8 +12,8 @@ public class Course {
 	public static final String NAME = "Name";
 	public static final String DESCRIPTION = "Description";
 	public static final String LOCATION = "Location";
-	public static final String START_DATE = "Start date";
-	public static final String TOTAL_SEATS = "Total seats";
+	public static final String START_DATE = "Start";
+	public static final String TOTAL_SEATS = "TotalSeats";
 
 	private final Integer _id;
 	private final String _name;
